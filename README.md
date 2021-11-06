@@ -1,0 +1,21 @@
+# OSEP-Breaking-Chains
+
+## Journey
+
+At the time of writing this I am about halfway through the PEN-300 course. Although I say this about every offsec course I take, this course has been very motivational. Granted I've taken longer on the course materials than I wanted to. This is mostly because I tend to beyond what is expected from an exercise or extra mile because I like to tinker. It helps in the long run, but hurts the lab timer, oh well. 
+
+## Code Snippets
+
+As I progress through the course, I am suiting up some code snippets that I will share here. The intent here is to give you a taste of some of the techniques you'll get exposed to with the hopes of motivating you to join your peers by enrolling in the course.
+
+| Snippet | Description | Language
+| :-- | :--| :--|
+| AES-Shellcode.cs | Encrypting shellcode with an AES 128/256 cipher | C# |
+| Caesar-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher | C# |
+| XOR-Shellcode.cs | Encrypting shellcode with a XOR cipher | C# |
+| CaesarXor-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | C# |
+| AES-Shellcode-Runner.cs | AES encrypted shellcode runner | C# |
+| AES-Shellcode.ps1 | Encrypting shellcode with an AES 128/256 cipher | PowerShell |
+| Caesar-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher | PowerShell |
+| XOR-Shellcode.ps1 | Encrypting shellcode with a XOR cipher | PowerShell |
+| CaesarXor-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | PowerShell |
