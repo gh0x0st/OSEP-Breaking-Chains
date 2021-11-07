@@ -8,7 +8,7 @@ At the time of writing this I am about halfway through the PEN-300 course. Altho
 
 As I progress through the course, I am suiting up some code snippets that I will share here. The intent here is to give you a taste of some of the techniques you'll get exposed to with the hopes of motivating you to join your peers by enrolling in the course.
 
-### Shellcode Encoders
+### Shellcode Crypters
 
 | Snippet | Description | Language
 | :-- | :--| :--|
@@ -23,6 +23,7 @@ As I progress through the course, I am suiting up some code snippets that I will
 | XOR-Shellcode.ps1 | Encrypting shellcode with a XOR cipher | PowerShell |
 
 ### Shellcode Runners
+
 | Snippet | Description | Language
 | :-- | :--| :--|
 | AES-Shellcode-Runner.cs | AES encrypted shellcode runner | C# |
