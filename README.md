@@ -21,6 +21,7 @@ As I progress through the course, I am suiting up some code snippets that I will
 | Caesar-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher | PowerShell |
 | CaesarXor-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | PowerShell |
 | DES-Shellcode.ps1 | Encrypting shellcode with a DES cipher | PowerShell |
+| RC2-Shellcode.ps1 | Encrypting shellcode with a RC2 cipher | PowerShell |
 | XOR-Shellcode.ps1 | Encrypting shellcode with a XOR cipher | PowerShell |
 
 ### Shellcode Runners
