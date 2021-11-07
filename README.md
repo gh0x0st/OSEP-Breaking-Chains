@@ -8,14 +8,21 @@ At the time of writing this I am about halfway through the PEN-300 course. Altho
 
 As I progress through the course, I am suiting up some code snippets that I will share here. The intent here is to give you a taste of some of the techniques you'll get exposed to with the hopes of motivating you to join your peers by enrolling in the course.
 
+### Shellcode Encoders
+
 | Snippet | Description | Language
 | :-- | :--| :--|
-| AES-Shellcode.cs | Encrypting shellcode with an AES 128/256 cipher | C# |
+| AES-Shellcode.cs | Encrypting shellcode with an AES 128/192/256 cipher | C# |
 | Caesar-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher | C# |
-| XOR-Shellcode.cs | Encrypting shellcode with a XOR cipher | C# |
 | CaesarXor-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | C# |
-| AES-Shellcode-Runner.cs | AES encrypted shellcode runner | C# |
-| AES-Shellcode.ps1 | Encrypting shellcode with an AES 128/256 cipher | PowerShell |
+| XOR-Shellcode.cs | Encrypting shellcode with a XOR cipher | C# |
+| AES-Shellcode.ps1 | Encrypting shellcode with an AES 128/192/256 cipher | PowerShell |
 | Caesar-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher | PowerShell |
-| XOR-Shellcode.ps1 | Encrypting shellcode with a XOR cipher | PowerShell |
 | CaesarXor-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | PowerShell |
+| DES-Shellcode.ps1 | Encrypting shellcode with a DES cipher | PowerShell |
+| XOR-Shellcode.ps1 | Encrypting shellcode with a XOR cipher | PowerShell |
+
+### Shellcode Runners
+| Snippet | Description | Language
+| :-- | :--| :--|
+| AES-Shellcode-Runner.cs | AES encrypted shellcode runner | C# |
