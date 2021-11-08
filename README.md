@@ -29,3 +29,4 @@ As I progress through the course, I am suiting up some code snippets that I will
 | Snippet | Description | Language
 | :-- | :--| :--|
 | AES-Shellcode-Runner.cs | AES encrypted shellcode runner | C# |
+| AES-Shellcode-Runner.ps1 | AES encrypted shellcode runner | PowerShell |
