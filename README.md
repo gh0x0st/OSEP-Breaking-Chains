@@ -12,15 +12,18 @@ As I progress through the course, I am suiting up some code snippets that I will
 
 | Snippet | Description | Language
 | :-- | :--| :--|
-| 3DES-Shellcode.ps1 | Encrypting shellcode with a 3DES cipher | PowerShell |
-| AES-Shellcode.cs | Encrypting shellcode with an AES 128/192/256 cipher | C# |
-| AES-Shellcode.ps1 | Encrypting shellcode with an AES 128/192/256 cipher | PowerShell |
+| 3DES-Shellcode.cs | Encrypting shellcode with a 3DES 128/192-bit cipher | C# |
+| 3DES-Shellcode.ps1 | Encrypting shellcode with a 3DES 128/192-bit cipher | PowerShell |
+| AES-Shellcode.cs | Encrypting shellcode with an AES 128/192/256-bit cipher | C# |
+| AES-Shellcode.ps1 | Encrypting shellcode with an AES 128/192/256-bit cipher | PowerShell |
 | Caesar-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher | C# |
 | Caesar-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher | PowerShell |
-| CaesarXor-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | C# |
-| CaesarXor-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | PowerShell |
-| DES-Shellcode.ps1 | Encrypting shellcode with a DES cipher | PowerShell |
-| RC2-Shellcode.ps1 | Encrypting shellcode with a RC2 cipher | PowerShell |
+| CaesarXor-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then XOR | C# |
+| CaesarXor-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher then XOR | PowerShell |
+| DES-Shellcode.cs | Encrypting shellcode with a DES 64-bit cipher | C# |
+| DES-Shellcode.ps1 | Encrypting shellcode with a DES 64-bit cipher | PowerShell |
+| RC2-Shellcode.cs | Encrypting shellcode with a RC2 40/128-bit cipher | C# |
+| RC2-Shellcode.ps1 | Encrypting shellcode with a RC2 40/128-bit cipher | PowerShell |
 | XOR-Shellcode.cs | Encrypting shellcode with a XOR cipher | C# |
 | XOR-Shellcode.ps1 | Encrypting shellcode with a XOR cipher | PowerShell |
 
@@ -28,5 +31,5 @@ As I progress through the course, I am suiting up some code snippets that I will
 
 | Snippet | Description | Language
 | :-- | :--| :--|
-| AES-Shellcode-Runner.cs | AES encrypted shellcode runner | C# |
-| AES-Shellcode-Runner.ps1 | AES encrypted shellcode runner | PowerShell |
+| AES-Shellcode-Runner.cs | AES 128/192/256-bit encrypted shellcode runner | C# |
+| AES-Shellcode-Runner.ps1 | AES 128/192/256-bit encrypted shellcode runner | PowerShell |
