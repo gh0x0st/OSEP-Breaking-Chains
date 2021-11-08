@@ -12,16 +12,16 @@ As I progress through the course, I am suiting up some code snippets that I will
 
 | Snippet | Description | Language
 | :-- | :--| :--|
-| AES-Shellcode.cs | Encrypting shellcode with an AES 128/192/256 cipher | C# |
-| Caesar-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher | C# |
-| CaesarXor-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | C# |
-| XOR-Shellcode.cs | Encrypting shellcode with a XOR cipher | C# |
 | 3DES-Shellcode.ps1 | Encrypting shellcode with a 3DES cipher | PowerShell |
+| AES-Shellcode.cs | Encrypting shellcode with an AES 128/192/256 cipher | C# |
 | AES-Shellcode.ps1 | Encrypting shellcode with an AES 128/192/256 cipher | PowerShell |
+| Caesar-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher | C# |
 | Caesar-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher | PowerShell |
+| CaesarXor-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | C# |
 | CaesarXor-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher then a XOR cipher | PowerShell |
 | DES-Shellcode.ps1 | Encrypting shellcode with a DES cipher | PowerShell |
 | RC2-Shellcode.ps1 | Encrypting shellcode with a RC2 cipher | PowerShell |
+| XOR-Shellcode.cs | Encrypting shellcode with a XOR cipher | C# |
 | XOR-Shellcode.ps1 | Encrypting shellcode with a XOR cipher | PowerShell |
 
 ### Shellcode Runners
