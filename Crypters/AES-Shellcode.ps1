@@ -35,13 +35,12 @@ function Format-ByteArrayToHex($Bytes, $VarName) {
 function Encrypt-Bytes($Bytes, $Key, $IV) {
     $aes = New-Object System.Security.Cryptography.AesCryptoServiceProvider
 
-    # 128-bit / 192-bit / 256-bit
-    # I found that some vendors flag payloads more that use 256 vs 128. Something to keep in mind.
-    $aes.KeySize = 128
+    # 128-bit | 192-bit | 256-bit
+    # I found that some vendors flag payloads more that use 256-bit vs 128-bit. Something to keep in mind.
+    $aes.KeySize = 256
     
-    # AES is a 128-bit block cipher so this won't change between 128-bit/192-bit/256-bit keys
+    # Does not change between 128/192/256-bit key lengths
     $aes.BlockSize = 128
-    
     $aes.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
     $aes.key = $Key
     $aes.IV = $IV
@@ -56,12 +55,11 @@ function Encrypt-Bytes($Bytes, $Key, $IV) {
 
 function Decrypt-Bytes($Bytes, $Key, $IV) {
     $aes = New-Object System.Security.Cryptography.AesCryptoServiceProvider
-    $aes.KeySize = 128
+    $aes.KeySize = 256
     $aes.BlockSize = 128
 
     # Keep this in mind when you view your decrypted content as the size will likely be different
     $aes.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
-
     $aes.key = $Key
     $aes.IV = $IV
 
@@ -74,7 +72,7 @@ function Decrypt-Bytes($Bytes, $Key, $IV) {
 }
 
 # 16 Bytes > AES-128 | 24 Bytes > AES-192 | 32 Bytes > AES-256
-[Byte[]]$Key = Get-RandomBytes -Size 16
+[Byte[]]$Key = Get-RandomBytes -Size 32
 
 # This does not change between different key lengths
 [Byte[]]$IV = Get-RandomBytes -Size 16

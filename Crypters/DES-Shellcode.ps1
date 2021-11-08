@@ -64,11 +64,13 @@ function Decrypt-Bytes($Bytes, $Key, $IV) {
 
     $decryptor = $des.CreateDecryptor($des.Key, $des.IV)
     $decrypted = $decryptor.TransformFinalBlock($Bytes, 0, $Bytes.Length) 
+
+    # If you keep powershell open this will stay in memory
     $des.Dispose()
     return $decrypted
 }
 
-# 8 Bytes > DES
+# 8 Bytes > 64-bit
 [Byte[]]$Key = Get-RandomBytes -Size 8
 [Byte[]]$IV = Get-RandomBytes -Size 8
 

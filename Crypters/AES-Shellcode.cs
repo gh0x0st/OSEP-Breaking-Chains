@@ -18,7 +18,6 @@ namespace AES_Shellcode
         public static string FormatByteArrayToHex(byte[] data, string varName)
         {
             StringBuilder hex = new StringBuilder(data.Length * 2);
-
             for (int count = 0; count < data.Length; count++)
             {
                 byte b = data[count];
@@ -47,13 +46,12 @@ namespace AES_Shellcode
         {
             using (var aes = Aes.Create())
             {
-                // 128-bit / 192-bit / 256-bit
-                // I found that some vendors flag payloads more that use 256 vs 128. Something to keep in mind.
-                aes.KeySize = 128;
+                // 128-bit | 192-bit | 256-bit
+                // I found that some vendors flag payloads more that use 256-bit vs 128-bit. Something to keep in mind.
+                aes.KeySize = 256;
 
-                // AES is a 128-bit block cipher so this won't change between 128-bit/192-bit/256-bit keys
+                // Does not change between 128/192/256-bit key lengths
                 aes.BlockSize = 128;
-
                 aes.Padding = PaddingMode.Zeros;
                 aes.Key = key;
                 aes.IV = iv;
@@ -69,12 +67,11 @@ namespace AES_Shellcode
         {
             using (var aes = Aes.Create())
             {
-                aes.KeySize = 128;
+                aes.KeySize = 256;
                 aes.BlockSize = 128;
 
                 // Keep this in mind when you view your decrypted content as the size will likely be different.
                 aes.Padding = PaddingMode.Zeros;
-
                 aes.Key = key;
                 aes.IV = iv;
 
@@ -92,7 +89,6 @@ namespace AES_Shellcode
             {
                 cryptoStream.Write(data, 0, data.Length);
                 cryptoStream.FlushFinalBlock();
-
                 return ms.ToArray();
             }
         }
@@ -100,7 +96,7 @@ namespace AES_Shellcode
         static void Main(string[] args)
         {
             // 16 Bytes > AES-128 | 24 Bytes > AES-192 | 32 Bytes > AES-256
-            byte[] keyBytes = RandomBytes(16);
+            byte[] keyBytes = RandomBytes(32);
 
             // This does not change between different key lengths
             byte[] ivBytes = RandomBytes(16);
