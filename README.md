@@ -33,3 +33,5 @@ As I progress through the course, I am suiting up some code snippets that I will
 | :-- | :--| :--|
 | AES-Shellcode-Runner.cs | AES 128/192/256-bit encrypted shellcode runner | C# |
 | AES-Shellcode-Runner.ps1 | AES 128/192/256-bit encrypted shellcode runner | PowerShell |
+| DLL-Shellcode-Runner.cs | AES 128/192/256-bit encrypted shellcode class library (DLL) runner | C# |
+| DLL-Shellcode-Loader.ps1 | Reflective loading technques for the class library runner | PowerShell |
