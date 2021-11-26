@@ -20,7 +20,7 @@ As I progress through the course, I am suiting up some code snippets that I will
 | Caesar-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher | PowerShell |
 | Caesar-Xor-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then XOR | C# |
 | Caesar-Xor-Shellcode.ps1 | Encrypting shellcode with a Caesar/ROT cipher then XOR | PowerShell |
-| Caesar-XOR-VBA-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then XOR for VBA | C# |
+| Caesar-Xor-VBA-Shellcode.cs | Encrypting shellcode with a Caesar/ROT cipher then XOR for VBA | C# |
 | DES-Shellcode.cs | Encrypting shellcode with a DES 64-bit cipher | C# |
 | DES-Shellcode.ps1 | Encrypting shellcode with a DES 64-bit cipher | PowerShell |
 | RC2-Shellcode.cs | Encrypting shellcode with a RC2 40/128-bit cipher | C# |
