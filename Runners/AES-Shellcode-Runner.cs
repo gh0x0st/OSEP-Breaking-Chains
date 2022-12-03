@@ -20,7 +20,7 @@ namespace StayAwhile
         {
             using (var aes = Aes.Create())
             {
-                aes.KeySize = 128;
+                aes.KeySize = 256;
                 aes.BlockSize = 128;
 
                 // Keep this in mind when you view your decrypted content as the size will likely be different.
