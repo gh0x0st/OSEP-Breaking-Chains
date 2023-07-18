@@ -33,7 +33,11 @@ As I progress through the course, I am suiting up some code snippets that I will
 
 | Snippet | Description | Language
 | :-- | :--| :--|
+| AES-Shellcode-Runner.aspx | AES 128/192/256-bit encrypted shellcode runner | ASPX/C# |
 | AES-Shellcode-Runner.cs | AES 128/192/256-bit encrypted shellcode runner | C# |
 | AES-Shellcode-Runner.ps1 | AES 128/192/256-bit encrypted shellcode runner | PowerShell |
+| Caesar-XOR-Process-Injection.cs | Caesar+XOR encrypted process injection shellcode runner | C# |
+| Caesar-XOR-Shellcode-Runner.vb | Caesar+XOR encrypted shellcode runner for word macros | VB |
+| Caesar-XOR-Staged-Shellcode-Runner.vb | Staged Caesar+XOR encrypted shellcode runner for word macros | VB |
 | DLL-Shellcode-Runner.cs | AES 128/192/256-bit encrypted shellcode class library (DLL) runner | C# |
 | DLL-Shellcode-Loader.ps1 | Reflective loading technques for the class library (DLL) runner | PowerShell |
