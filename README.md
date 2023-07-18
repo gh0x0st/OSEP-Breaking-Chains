@@ -6,7 +6,7 @@ At the time of writing this I am about halfway through the PEN-300 course. Altho
 
 ## Code Snippets
 
-As I progress through the course, I am suiting up some code snippets that I will share here. The intent here is to give you a taste of some of the techniques you'll get exposed to with the hopes of motivating you to join your peers by enrolling in the course.
+As I progress through the course, I am suiting up some code snippets that I will share here. The intent here is to give you a taste of some of the techniques you'll get exposed to with the hopes of motivating you to join your peers by enrolling in the course. Keep in mind these snippets do not include evasion techniques outside of encrypting and/or staging shellcode. Those techniques will be added in the future.
 
 ### Shellcode Crypters
 
