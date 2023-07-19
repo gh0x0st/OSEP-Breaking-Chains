@@ -29,13 +29,15 @@ As I progress through the course, I am suiting up some code snippets that I will
 | XOR-Shellcode.cs | XOR | C# |
 | XOR-Shellcode.ps1 | XOR | PowerShell |
 
-### Shellcode Runners
+### Runners
 
 | File Name | Type | Language
 | :-- | :--| :--|
+| AES-Process-Hollowing.aspx | Process hollowing with AES 128/192/256-bit encrypted shellcode | ASPX/C# |
 | AES-Shellcode-Runner.aspx | AES 128/192/256-bit encrypted shellcode runner | ASPX/C# |
 | AES-Shellcode-Runner.cs | AES 128/192/256-bit encrypted shellcode runner | C# |
 | AES-Shellcode-Runner.ps1 | AES 128/192/256-bit encrypted shellcode runner | PowerShell |
+| AES-Shellcode-Runner.aspx | Staged AES 128/192/256-bit encrypted shellcode runner | ASPX/C# |
 | Caesar-XOR-Process-Injection.cs | Process injection with Caesar+XOR encrypted shellcode | C# |
 | Caesar-XOR-Shellcode-Runner.vb | Caesar+XOR encrypted shellcode runner for word macros | VB |
 | Caesar-XOR-Staged-Shellcode-Runner.vb | Staged Caesar+XOR encrypted shellcode runner for word macros | VB |
