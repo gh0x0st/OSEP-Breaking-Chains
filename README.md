@@ -10,7 +10,7 @@ As I progress through the course, I am suiting up some code snippets that I will
 
 ### Shellcode Crypters
 
-| File Name | Description | Language
+| File Name | Cipher | Language
 | :-- | :--| :--|
 | 3DES-Shellcode.cs | 3DES 128/192-bit | C# |
 | 3DES-Shellcode.ps1 | 3DES 128/192-bit | PowerShell |
@@ -31,7 +31,7 @@ As I progress through the course, I am suiting up some code snippets that I will
 
 ### Shellcode Runners
 
-| File Name | Description | Language
+| File Name | Type | Language
 | :-- | :--| :--|
 | AES-Shellcode-Runner.aspx | AES 128/192/256-bit encrypted shellcode runner | ASPX/C# |
 | AES-Shellcode-Runner.cs | AES 128/192/256-bit encrypted shellcode runner | C# |
